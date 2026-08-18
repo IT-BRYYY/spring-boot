@@ -1,0 +1,27 @@
+services:
+  db:
+    container_name: postgres-spring-boot
+    image: postgres:latest
+
+    environment:
+      POSTGRES_USER: brypostgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: practice_db
+
+    volumes:
+      - db:/data/postgres
+
+    ports:
+      - "5332:5432"
+
+    networks:
+      - db
+
+    restart: unless-stopped
+
+volumes:
+  db:
+
+networks:
+  db:
+
